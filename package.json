@@ -17,6 +17,7 @@
     "vue-tsc": "^1.0.24"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^0.2.28",
     "gsap": "^3.11.4"
   }
 }
