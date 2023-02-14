@@ -1,0 +1,9 @@
+/* clash-display - variable */
+@font-face {
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-display: swap;
+  src: local(''),
+    url('../fonts/clash-display/clash-display-variable.woff2') format('woff2'),
+    url('../fonts/clash-display/clash-display-variable.woff') format('woff');
+}
