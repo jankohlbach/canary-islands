@@ -12,12 +12,12 @@ onMounted(() => {
     .delay(0.4)
     .to(
       textTop.value.querySelectorAll('span'),
-      { y: '0', stagger: 0.1 }
+      { y: '0', stagger: 0.08, duration: 1.2 }
     )
     .to(
       textBottom.value.querySelectorAll('span'),
-      { y: '0', stagger: 0.1 },
-      '<0.3'
+      { y: '0', stagger: 0.08, duration: 1.2 },
+      '<0.2'
     )
     .addLabel('textMove', '>-0.3')
     .to(
@@ -51,7 +51,7 @@ onMounted(() => {
 <template>
   <div class="intro-wrap">
     <div ref="img" class="intro-image">
-      <img src="~/assets/images/intro-test.jpg">
+      <img src="~/assets/images/intro.jpeg">
     </div>
     <span ref="textTop" class="intro-text intro-text--top">
       <span>C</span>
