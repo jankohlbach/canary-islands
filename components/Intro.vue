@@ -1,12 +1,50 @@
 <script setup lang="ts">
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+const wrap = ref()
+const imgWrap = ref()
 const img = ref()
 const textTop = ref()
 const textBottom = ref()
 
+const createTimeline2 = () => {
+  const tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: wrap.value,
+      start: 'top top',
+      scrub: true
+    }
+  })
+
+  tl2
+    .to(
+      textTop.value,
+      { x: '-40%' },
+      0
+    )
+    .to(
+      textBottom.value,
+      { x: '40%' },
+      0
+    )
+    .to(
+      img.value,
+      { y: '20%' },
+      0
+    )
+}
+
 onMounted(() => {
-  const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.out' } })
+  gsap.registerPlugin(ScrollTrigger)
+
+  const tl = gsap.timeline({
+    defaults: { duration: 1, ease: 'power3.out' },
+    onComplete: () => {
+      window.dispatchEvent(new CustomEvent('lenis:start'))
+      createTimeline2()
+    }
+  })
 
   tl
     .delay(0.4)
@@ -36,12 +74,12 @@ onMounted(() => {
       '<50%'
     )
     .to(
-      img.value,
+      imgWrap.value,
       { clipPath: 'inset(49.5% 0%)' },
       'textMove+=0.2'
     )
     .to(
-      img.value,
+      imgWrap.value,
       { clipPath: 'inset(0% 0%)' },
       '>-0.1'
     )
@@ -49,9 +87,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="intro-wrap">
-    <div ref="img" class="intro-image">
-      <img src="~/assets/images/intro.jpeg">
+  <div ref="wrap" class="intro-wrap">
+    <div ref="imgWrap" class="intro-image">
+      <img ref="img" src="~/assets/images/intro.jpeg">
     </div>
     <span ref="textTop" class="intro-text intro-text--top">
       <span>C</span>
@@ -71,6 +109,25 @@ onMounted(() => {
       <span>S</span>
     </span>
   </div>
+  <!-- TODO: remove later -->
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
+  <h1>placeholder</h1>
 </template>
 
 <style lang="scss" scoped>
@@ -97,7 +154,7 @@ onMounted(() => {
 
 .intro-text {
   position: absolute;
-  font-size: 12vw;
+  font-size: 14vw;
   font-weight: var(--fw-semibold);
   line-height: 1;
   color: var(--c-light);
@@ -116,7 +173,7 @@ onMounted(() => {
   }
 
   &--bottom {
-    right: 0;
+    right: clamp(0rem, 1.25vw, 1.5rem);
     bottom: 0;
     transform-origin: center right;
     transform: translateX(calc(-100vw + 100%));

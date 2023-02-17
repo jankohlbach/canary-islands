@@ -23,6 +23,7 @@ body {
   hyphenate-character: '-';
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-y: hidden;
 }
 
 img, picture, video, canvas, svg {

@@ -20,6 +20,13 @@ onMounted(() => {
   }
 
   requestAnimationFrame(raf)
+
+  lenis.stop()
+
+  window.addEventListener('lenis:start', () => {
+    lenis.start()
+    document.body.style.overflowY = 'scroll'
+  })
 })
 </script>
 
