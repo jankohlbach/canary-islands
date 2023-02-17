@@ -76,7 +76,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .intro-wrap {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--c-primary);
 }
 
@@ -85,7 +85,7 @@ onMounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   clip-path: inset(49.5% 50%);
 
   img {
