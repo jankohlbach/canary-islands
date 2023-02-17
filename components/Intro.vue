@@ -133,7 +133,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .intro-wrap {
   position: relative;
-  height: 100dvh;
+  height: 100svh;
   background-color: var(--c-primary);
 }
 
