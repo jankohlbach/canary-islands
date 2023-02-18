@@ -21,10 +21,12 @@ onMounted(() => {
     }
   })
 
+  gsap.set(splitText.chars, { transformOrigin: 'center top' })
+
   tl.fromTo(
     splitText.chars,
-    { autoAlpha: 0.05 },
-    { autoAlpha: 1, stagger: 0.3 }
+    { autoAlpha: 0.02, y: '0%', scaleY: 1.8 },
+    { autoAlpha: 1, y: 0, scaleY: 1, stagger: 0.1 }
   )
 })
 </script>
