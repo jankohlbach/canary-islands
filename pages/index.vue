@@ -31,5 +31,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <Intro />
+  <div>
+    <Intro />
+    <div class="spacer" style="height:100vh" />
+    <TextFadeIn />
+    <div class="spacer" style="height:100vh" />
+  </div>
 </template>

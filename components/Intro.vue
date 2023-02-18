@@ -83,6 +83,8 @@ onMounted(() => {
       { clipPath: 'inset(0% 0%)' },
       '>-0.1'
     )
+
+  // tl.progress(0.99)
 })
 </script>
 
@@ -109,28 +111,11 @@ onMounted(() => {
       <span>S</span>
     </span>
   </div>
-  <!-- TODO: remove later -->
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
-  <h1>placeholder</h1>
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/styles/functions' as *;
+
 .intro-wrap {
   position: relative;
   height: 100svh;
@@ -173,7 +158,7 @@ onMounted(() => {
   }
 
   &--bottom {
-    right: clamp(0rem, 1.25vw, 1.5rem);
+    right: clamp(rem(0), 1.25vw, rem(24));
     bottom: 0;
     transform-origin: center right;
     transform: translateX(calc(-100vw + 100%));
