@@ -14,7 +14,8 @@ const createTimeline2 = () => {
       trigger: wrap.value,
       start: 'top top',
       scrub: true
-    }
+    },
+    defaults: { ease: 'none' }
   })
 
   tl2
@@ -120,6 +121,7 @@ onMounted(() => {
   position: relative;
   height: 100svh;
   background-color: var(--c-primary);
+  overflow: hidden;
 }
 
 .intro-image {

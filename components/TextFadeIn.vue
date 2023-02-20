@@ -18,16 +18,18 @@ onMounted(() => {
       end: '+=200%',
       scrub: true,
       pin: true
-    }
+    },
+    defaults: { ease: 'none' }
   })
 
   gsap.set(splitText.chars, { transformOrigin: 'center top' })
 
-  tl.fromTo(
-    splitText.chars,
-    { autoAlpha: 0.02, y: '0%', scaleY: 1.8 },
-    { autoAlpha: 1, y: 0, scaleY: 1, stagger: 0.1 }
-  )
+  tl
+    .fromTo(
+      splitText.chars,
+      { autoAlpha: 0.02, scaleY: 1.8 },
+      { autoAlpha: 1, scaleY: 1, stagger: 0.1 }
+    )
 })
 </script>
 

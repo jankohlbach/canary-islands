@@ -33,8 +33,9 @@ onMounted(() => {
 <template>
   <div>
     <Intro />
-    <div class="spacer" style="height:100vh" />
+    <div style="margin-bottom: 30vw" />
+    <Map />
+    <div style="margin-bottom: 30vw" />
     <TextFadeIn />
-    <div class="spacer" style="height:100vh" />
   </div>
 </template>
