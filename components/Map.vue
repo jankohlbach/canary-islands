@@ -14,12 +14,17 @@ const line1 = ref()
 const line2 = ref()
 const line3 = ref()
 const line4 = ref()
+const img1 = ref()
+const img2 = ref()
+const img3 = ref()
+const img4 = ref()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   const islands = [island1.value, island2.value, island3.value, island4.value]
   const lines = [line1.value, line2.value, line3.value, line4.value]
+  const images = [img1.value, img2.value, img3.value, img4.value]
 
   const islandsSplitText = islands.map((island) => {
     return SplitType.create(island)
@@ -48,16 +53,29 @@ onMounted(() => {
       { scale: 18, duration: 3 },
       '<'
     )
+    .addLabel('startIslands')
 
   islandsSplitText.forEach((island, i) => {
     gsap.set(island.chars, { transformOrigin: 'center top' })
 
+    if (i === 0) {
+      tl
+        .fromTo(
+          island.chars,
+          { autoAlpha: 0, scaleY: 1.8 },
+          { autoAlpha: 1, scaleY: 1, stagger: { amount: 1 } },
+          'startIslands'
+        )
+    } else {
+      tl
+        .fromTo(
+          island.chars,
+          { autoAlpha: 0, scaleY: 1.8 },
+          { autoAlpha: 1, scaleY: 1, stagger: { amount: 1 } }
+        )
+    }
+
     tl
-      .fromTo(
-        island.chars,
-        { autoAlpha: 0, scaleY: 1.8 },
-        { autoAlpha: 1, scaleY: 1, stagger: 0.08 }
-      )
       .fromTo(
         lines[i],
         { },
@@ -67,13 +85,41 @@ onMounted(() => {
       .fromTo(
         island.chars,
         { autoAlpha: 1, scaleY: 1 },
-        { autoAlpha: 0, scaleY: 1.8, stagger: 0.1 }
+        { autoAlpha: 0, scaleY: 1.8, stagger: { amount: 1 } }
       )
       .fromTo(
         lines[i],
         { },
         { onUpdate: function () { lines[i].style.strokeDashoffset = this.ratio } },
         '<'
+      )
+  })
+
+  images.forEach((image, i) => {
+    if (i === 0) {
+      tl
+        .fromTo(
+          image,
+          { clipPath: 'inset(100% 0% 0% 0%)' },
+          { clipPath: 'inset(0% 0% 0% 0%)', duration: 2 },
+          'startIslands'
+        )
+    } else {
+      tl
+        .fromTo(
+          image,
+          { clipPath: 'inset(100% 0% 0% 0%)' },
+          { clipPath: 'inset(0% 0% 0% 0%)', duration: 2 },
+          '>'
+        )
+    }
+
+    tl
+      .fromTo(
+        images[i],
+        { clipPath: 'inset(0% 0% 0% 0%)' },
+        { clipPath: 'inset(100% 0% 0% 0%)', duration: 2 },
+        '>'
       )
   })
 })
@@ -381,6 +427,10 @@ onMounted(() => {
     <span ref="island2" class="island-title">Gran Canaria</span>
     <span ref="island3" class="island-title">Fuerteventura</span>
     <span ref="island4" class="island-title">Lanzarote</span>
+    <img ref="img1" class="image" src="~/assets/images/tenerife.jpeg">
+    <img ref="img2" class="image" src="~/assets/images/grancanaria.jpeg">
+    <img ref="img3" class="image" src="~/assets/images/fuerteventura.jpeg">
+    <img ref="img4" class="image" src="~/assets/images/lanzarote.jpeg">
   </div>
 </template>
 
@@ -418,5 +468,15 @@ svg {
   font-size: clamp(rem(30), calc(0rem + 8.1vw), rem(155));
   color: var(--c-light);
   mix-blend-mode: difference;
+}
+
+.image {
+  position: absolute;
+  right: 10vw;
+  top: 44vh;
+  z-index: 1;
+  width: min(rem(650), 80vw);
+  aspect-ratio: 3/2;
+  object-fit: cover;
 }
 </style>
