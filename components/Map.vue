@@ -392,7 +392,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100svh;
+  height: 100vh;
   background-color: var(--c-light);
   overflow: hidden;
 }

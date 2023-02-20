@@ -49,7 +49,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   max-width: min(rem(1200), 90vw);
-  height: 100svh;
+  height: 100vh;
   margin-inline: auto;
 }
 
