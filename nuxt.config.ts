@@ -1,3 +1,5 @@
+import glsl from 'vite-plugin-glsl'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: process.env.NUXT_ENV_VERCEL_ENV === 'production',
@@ -24,6 +26,9 @@ export default defineNuxtConfig({
         { name: 'og:locale', content: 'en' }
       ]
     }
+  },
+  vite: {
+    plugins: [glsl()]
   },
   typescript: {
     typeCheck: true

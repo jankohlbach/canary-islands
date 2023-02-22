@@ -2,15 +2,6 @@
 import Lenis from '@studio-freight/lenis'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const debounce = (func: any, timeout = 300) => {
-  let timer: NodeJS.Timeout
-
-  return (...args: any) => {
-    clearTimeout(timer)
-    timer = setTimeout(() => { func.apply(this, args) }, timeout)
-  }
-}
-
 onMounted(() => {
   window.addEventListener('resize', () => debounce(ScrollTrigger.refresh()))
 
@@ -44,6 +35,7 @@ onMounted(() => {
 
 <template>
   <div>
+    <Cursor />
     <Intro />
     <div style="margin-bottom: 30vw" />
     <Map />
