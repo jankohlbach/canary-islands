@@ -85,14 +85,14 @@ onMounted(() => {
       '>-0.1'
     )
 
-  // tl.progress(0.99)
+  tl.progress(0.99)
 })
 </script>
 
 <template>
   <div ref="wrap" class="intro-wrap">
     <div ref="imgWrap" class="intro-image">
-      <img ref="img" src="~/assets/images/intro.jpeg">
+      <img ref="img" src="~/assets/images/intro.jpeg" alt="canary islands image">
     </div>
     <span ref="textTop" class="intro-text intro-text--top">
       <span>C</span>

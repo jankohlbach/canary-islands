@@ -427,10 +427,10 @@ onMounted(() => {
     <span ref="island2" class="island-title">Gran Canaria</span>
     <span ref="island3" class="island-title">Fuerteventura</span>
     <span ref="island4" class="island-title">Lanzarote</span>
-    <img ref="img1" class="image" src="~/assets/images/tenerife.jpeg">
-    <img ref="img2" class="image" src="~/assets/images/grancanaria.jpeg">
-    <img ref="img3" class="image" src="~/assets/images/fuerteventura.jpeg">
-    <img ref="img4" class="image" src="~/assets/images/lanzarote.jpeg">
+    <img ref="img1" class="image" src="~/assets/images/tenerife.jpeg" alt="tenerife image">
+    <img ref="img2" class="image" src="~/assets/images/grancanaria.jpeg" alt="gran canaria image">
+    <img ref="img3" class="image" src="~/assets/images/fuerteventura.jpeg" alt="fuerteventura image">
+    <img ref="img4" class="image" src="~/assets/images/lanzarote.jpeg" alt="lanzarote image">
   </div>
 </template>
 
