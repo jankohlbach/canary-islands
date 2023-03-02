@@ -1,8 +1,6 @@
 <script setup lang="ts">
-// @ts-expect-error
-import vsSource from '~/assets/shader/vertex.glsl'
-// @ts-expect-error
-import fsSource from '~/assets/shader/fragment.glsl'
+import vsSource from '~/assets/shader/cursorVertex.glsl'
+import fsSource from '~/assets/shader/cursorFragment.glsl'
 
 const canvas = ref()
 const cursorCurrent = [0, 0]

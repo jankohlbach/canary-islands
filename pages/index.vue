@@ -41,5 +41,7 @@ onMounted(() => {
     <Map />
     <div style="margin-bottom: 30vw" />
     <TextFadeIn />
+    <div style="margin-bottom: 30vw" />
+    <Carousel />
   </div>
 </template>
