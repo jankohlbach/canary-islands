@@ -85,7 +85,7 @@ onMounted(() => {
       '>-0.1'
     )
 
-  tl.progress(0.99)
+  // tl.progress(0.99)
 })
 </script>
 
