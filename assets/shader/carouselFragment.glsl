@@ -6,10 +6,10 @@ varying vec2 vUv;
 
 
 vec3 rgbShift(sampler2D textureImage, vec2 uv, vec2 offset) {
-  float r = texture2D(textureImage, uv + offset).r;
-  vec2 gb = texture2D(textureImage, uv).gb;
+  vec2 rg = texture2D(textureImage, uv).rg;
+  float b = texture2D(textureImage, uv + offset).b;
 
-  return vec3(r, gb);
+  return vec3(rg, b);
 }
 
 void main() {

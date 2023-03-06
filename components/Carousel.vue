@@ -42,6 +42,7 @@ onMounted(() => {
 
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.z = 2
+  camera.rotation.z = 2 * Math.PI * 0.01
   // pane.addInput(camera.position, 'z', { min: 1, max: 10 })
 
   // const cameraHelper = new THREE.CameraHelper(camera)
@@ -55,7 +56,7 @@ onMounted(() => {
   const geometry = new THREE.PlaneGeometry(1, 0.75, 10, 10)
 
   const uOffset = new THREE.Vector2(0, 0)
-  const meshes: { mesh: THREE.Mesh; index: number; }[] = []
+  const items: { mesh: THREE.Mesh; index: number; }[] = []
   for (let i = 0; i < textures.length; i++) {
     const mesh = new THREE.Mesh(
       geometry,
@@ -69,7 +70,7 @@ onMounted(() => {
         fragmentShader: fsSource
       })
     )
-    meshes.push({ mesh, index: i })
+    items.push({ mesh, index: i })
     scene.add(mesh)
   }
 
@@ -83,16 +84,17 @@ onMounted(() => {
 
   const updateMeshes = () => {
     const width = 1.1
-    const wholeWidth = meshes.length * width
+    const wholeWidth = items.length * width
 
-    meshes.forEach((mesh) => {
-      mesh.mesh.position.x = ((width * mesh.index) - (st.progress * 10) + (42069 * wholeWidth)) % wholeWidth - 2 * width
+    items.forEach((item) => {
+      item.mesh.position.x = ((width * item.index) - (st.progress * 10) + (42069 * wholeWidth)) % wholeWidth - 2 * width
+      item.mesh.rotation.y = 2 * Math.PI * 0.03
     })
   }
 
   const render = () => {
     if (st.isActive) {
-      uOffset.set(st.getVelocity() * 0.00005, 0)
+      uOffset.set(st.getVelocity() * 0.00002, 0)
     } else {
       uOffset.set(0, 0)
     }
