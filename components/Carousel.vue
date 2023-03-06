@@ -15,6 +15,8 @@ import img4 from '~/assets/images/lanzarote.jpeg'
 
 const images = [img1, img2, img3, img4]
 
+const watermarkWrap = ref()
+const watermarkText = ref()
 const wrap = ref()
 const canvas = ref()
 
@@ -29,6 +31,25 @@ const resizeCanvas = (camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRend
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
+  const tlWatermark = gsap.timeline({
+    scrollTrigger: {
+      trigger: watermarkWrap.value,
+      start: 'top top',
+      end: '+=600%',
+      scrub: true,
+      pin: true,
+      pinSpacing: false
+    },
+    defaults: { ease: 'none' }
+  })
+
+  tlWatermark
+    .fromTo(
+      watermarkText.value,
+      { x: '20%' },
+      { x: '-60%' }
+    )
+
   const st = ScrollTrigger.create({
     trigger: wrap.value,
     start: 'top top',
@@ -42,6 +63,7 @@ onMounted(() => {
 
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.z = 2
+  camera.position.y = 0.3
   camera.rotation.z = 2 * Math.PI * 0.01
   // pane.addInput(camera.position, 'z', { min: 1, max: 10 })
 
@@ -74,7 +96,7 @@ onMounted(() => {
     scene.add(mesh)
   }
 
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas.value, alpha: true })
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas.value, alpha: true, antialias: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
@@ -115,12 +137,29 @@ onMounted(() => {
 </script>
 
 <template>
+  <div ref="watermarkWrap" class="watermark-wrap">
+    <span ref="watermarkText">Culture</span>
+  </div>
   <div ref="wrap" class="carousel-wrap">
     <canvas ref="canvas" />
   </div>
 </template>
 
 <style lang="scss" scoped>
+.watermark-wrap {
+  overflow: hidden;
+}
+
+span {
+  display: inline-block;
+  font-size: 35vw;
+  font-weight: var(--fw-black);
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
 canvas {
   width: 100%;
   height: 100%;
