@@ -91,7 +91,11 @@ onMounted(() => {
   }
 
   const render = () => {
-    uOffset.set(st.getVelocity() * 0.00005, 0)
+    if (st.isActive) {
+      uOffset.set(st.getVelocity() * 0.00005, 0)
+    } else {
+      uOffset.set(0, 0)
+    }
 
     updateMeshes()
 
