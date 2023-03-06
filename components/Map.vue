@@ -85,7 +85,8 @@ onMounted(() => {
       .fromTo(
         island.chars,
         { autoAlpha: 1, scaleY: 1 },
-        { autoAlpha: 0, scaleY: 1.8, stagger: { amount: 1 } }
+        { autoAlpha: 0, scaleY: 1.8, stagger: { amount: 1 } },
+        '>1.5'
       )
       .fromTo(
         lines[i],
@@ -119,7 +120,7 @@ onMounted(() => {
         images[i],
         { clipPath: 'inset(0% 0% 0% 0%)' },
         { clipPath: 'inset(100% 0% 0% 0%)', duration: 2 },
-        '>'
+        '>0.5'
       )
   })
 })
