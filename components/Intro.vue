@@ -92,7 +92,11 @@ onMounted(() => {
 <template>
   <div ref="wrap" class="intro-wrap">
     <div ref="imgWrap" class="intro-image">
-      <img ref="img" src="~/assets/images/intro.jpeg" alt="canary islands image">
+      <picture>
+        <source media="(max-width: 520px)" srcset="~/assets/images/intro-480w.jpeg">
+        <source srcset="~/assets/images/intro-2x.jpeg 2x, ~/assets/images/intro.jpeg">
+        <img src="~/assets/images/intro.jpeg" alt="canary islands image">
+      </picture>
     </div>
     <span ref="textTop" class="intro-text intro-text--top">
       <span>C</span>
@@ -122,6 +126,15 @@ onMounted(() => {
   height: 100svh;
   background-color: var(--c-primary);
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    mix-blend-mode: overlay;
+  }
 }
 
 .intro-image {
@@ -131,6 +144,11 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   clip-path: inset(49.5% 50%);
+
+  picture {
+    width: 100%;
+    height: 100%;
+  }
 
   img {
     width: 100%;
