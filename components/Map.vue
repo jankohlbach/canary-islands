@@ -466,7 +466,6 @@ onMounted(() => {
   justify-content: center;
   height: 100vh;
   background-color: var(--c-light);
-  overflow: hidden;
 }
 
 svg {
