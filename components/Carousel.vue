@@ -8,12 +8,17 @@ import * as THREE from 'three'
 import vsSource from '~/assets/shader/carouselVertex.glsl'
 import fsSource from '~/assets/shader/carouselFragment.glsl'
 
-import img1 from '~/assets/images/tenerife.jpeg'
-import img2 from '~/assets/images/grancanaria.jpeg'
-import img3 from '~/assets/images/fuerteventura.jpeg'
-import img4 from '~/assets/images/lanzarote.jpeg'
+import img1 from '~/assets/images/slider-1.jpeg'
+import img2 from '~/assets/images/slider-2.jpeg'
+import img3 from '~/assets/images/slider-3.jpeg'
+import img4 from '~/assets/images/slider-4.jpeg'
+import img5 from '~/assets/images/slider-5.jpeg'
+import img6 from '~/assets/images/slider-6.jpeg'
+import img7 from '~/assets/images/slider-7.jpeg'
+import img8 from '~/assets/images/slider-8.jpeg'
+import img9 from '~/assets/images/slider-9.jpeg'
 
-const images = [img1, img2, img3, img4]
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
 
 const watermarkWrap = ref()
 const watermarkText = ref()
