@@ -43,5 +43,18 @@ onMounted(() => {
     <TextFadeIn />
     <div style="margin-bottom: 20vw" />
     <Carousel />
+    <div style="margin-bottom: 5vw" />
+    <footer>
+      <p>made by <a href="https://jankohlbach.com" target="_blank">Jan Kohlbach</a> with 🎧 and too much 🕑</p>
+    </footer>
   </div>
 </template>
+
+<style lang="scss" scoped>
+footer {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0 30px 10px;
+}
+</style>
