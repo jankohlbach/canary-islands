@@ -89,12 +89,13 @@ onMounted(() => {
       geometry,
       new THREE.ShaderMaterial({
         uniforms: {
-          uOffset: { value: uOffset },
-          uTexture: { value: textures[i] },
-          uAlpha: { value: 1.0 }
+          u_offset: { value: uOffset },
+          u_texture: { value: textures[i] },
+          u_alpha: { value: 1.0 }
         },
         vertexShader: vsSource,
-        fragmentShader: fsSource
+        fragmentShader: fsSource,
+        glslVersion: THREE.GLSL3
       })
     )
     items.push({ mesh, index: i })

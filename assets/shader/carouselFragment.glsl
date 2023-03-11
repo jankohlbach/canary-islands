@@ -1,18 +1,20 @@
-uniform vec2 uOffset;
-uniform sampler2D uTexture;
-uniform float uAlpha;
+uniform vec2 u_offset;
+uniform sampler2D u_texture;
+uniform float u_alpha;
 
-varying vec2 vUv;
+in vec2 v_uv;
+
+out vec4 out_color;
 
 
 vec3 rgbShift(sampler2D textureImage, vec2 uv, vec2 offset) {
-  vec2 rg = texture2D(textureImage, uv).rg;
-  float b = texture2D(textureImage, uv + offset).b;
+  vec2 rg = texture(textureImage, uv).rg;
+  float b = texture(textureImage, uv + offset).b;
 
   return vec3(rg, b);
 }
 
 void main() {
-  vec3 color = rgbShift(uTexture, vUv, uOffset);
-  gl_FragColor = vec4(color, uAlpha);
+  vec3 color = rgbShift(u_texture, v_uv, u_offset);
+  out_color = vec4(color, u_alpha);
 }
