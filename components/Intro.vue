@@ -92,7 +92,7 @@ onMounted(() => {
 <template>
   <div ref="wrap" class="intro-wrap">
     <div ref="imgWrap" class="intro-image">
-      <picture>
+      <picture ref="img">
         <source media="(max-width: 520px)" srcset="~/assets/images/intro-480w.jpeg">
         <source srcset="~/assets/images/intro-2x.jpeg 2x, ~/assets/images/intro.jpeg">
         <img src="~/assets/images/intro.jpeg" alt="canary islands image">
