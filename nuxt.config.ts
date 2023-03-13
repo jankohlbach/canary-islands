@@ -15,6 +15,9 @@ export default defineNuxtConfig({
         // { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         // { rel: 'manifest', href: '/manifest.webmanifest' }
       ],
+      script: [
+        { async: true, defer: true, 'data-website-id': '4e9a8747-703b-4b7a-a560-3a79ec5453fd', src: 'https://tracking.jnkl.dev/umami.js' }
+      ],
       meta: [
         { name: 'robots', content: 'noindex,nofollow' },
         { name: 'theme-color', content: '#2D66A4' },
