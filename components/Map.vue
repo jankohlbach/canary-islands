@@ -102,7 +102,7 @@ onMounted(() => {
       .fromTo(
         lines[i],
         { },
-        { onUpdate: function () { lines[i].style.strokeDashoffset = this.ratio } },
+        { onUpdate: function () { if (this.ratio > 0) { lines[i].style.strokeDashoffset = this.ratio } } },
         '<'
       )
       .fromTo(
@@ -479,6 +479,7 @@ svg {
   .line {
     stroke: var(--c-primary-dark);
     stroke-dasharray: 1;
+    stroke-dashoffset: 1;
   }
 }
 
