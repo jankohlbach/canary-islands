@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Lenis from '@studio-freight/lenis'
+import Lenis from 'lenis'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 onMounted(() => {
